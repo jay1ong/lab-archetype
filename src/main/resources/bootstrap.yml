@@ -1,0 +1,22 @@
+server:
+  port: 11000
+spring:
+  application:
+    name: lab
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos.gxzcdev.cn:8848
+        namespace: lab
+        group: test
+      config:
+        server-addr: nacos.gxzcdev.cn:8848
+        namespace: lab
+        group: test
+        file-extension: yml
+  profiles:
+    active: dev
+
+
+
+
