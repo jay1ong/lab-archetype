@@ -49,7 +49,6 @@ public class User implements Serializable {
      * 用户ID
      */
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     @Column(length = 64)
     private String id;
 
