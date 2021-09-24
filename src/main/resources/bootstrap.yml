@@ -1,12 +1,12 @@
 spring:
   application:
-    name: lab
+    name: @artifactId@
   cloud:
     nacos:
       discovery:
-        server-addr: nacos.gxzcdev.cn:8848
+        server-addr: ${NACOS-HOST:nacos.gxzcdev.cn}:${NACOS-PORT:8848}
         namespace: ${spring.application.name}
-        group: test
+        group: ${NACOS-GROUP:test}
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         namespace: ${spring.application.name}
@@ -17,7 +17,7 @@ spring:
             group: ${spring.cloud.nacos.discovery.group}
             refresh: true
   profiles:
-    active: dev
+    active: ${SPRING-PROFILES-ACTIVE:dev}
 
 
 
