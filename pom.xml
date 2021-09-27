@@ -11,9 +11,14 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>org.im</groupId>
+    <groupId>com.im</groupId>
     <artifactId>lab</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>2021.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>archetype</name>
+
+    <url>https://jaylong.cn</url>
 
     <properties>
         <encoding>UTF-8</encoding>
@@ -26,8 +31,18 @@
         <hibernate-types-55.version>2.12.1</hibernate-types-55.version>
         <querydsl.version>5.0.0</querydsl.version>
         <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
-        <springdoc-openapi-ui.version>1.5.10</springdoc-openapi-ui.version>
+        <javax-persistence-api.version>2.2</javax-persistence-api.version>
     </properties>
+
+    <!--     omitted xml -->
+    <distributionManagement>
+        <repository>
+            <!--必须与 settings.xml 的 id 一致-->
+            <id>serverless-100020665958-lab-repo</id>
+            <name>repo</name>
+            <url>https://serverless-100020665958-maven.pkg.coding.net/repository/lab/repo/</url>
+        </repository>
+    </distributionManagement>
 
     <dependencyManagement>
         <dependencies>
@@ -140,10 +155,21 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
+        <defaultGoal>package</defaultGoal>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-archetype-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -171,6 +197,11 @@
                             <artifactId>querydsl-apt</artifactId>
                             <version>${querydsl.version}</version>
                         </path>
+                        <path>
+                            <groupId>javax.persistence</groupId>
+                            <artifactId>javax.persistence-api</artifactId>
+                            <version>${javax-persistence-api.version}</version>
+                        </path>
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
@@ -191,6 +222,13 @@
                 </executions>
             </plugin>
         </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>3.1.1</version>
+            </extension>
+        </extensions>
     </build>
 
 </project>
