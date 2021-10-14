@@ -23,13 +23,13 @@ public class TestController {
 
     private final UserJpaRepository jpaRepository;
 
-    @Value("${lab.name}")
-    public String labName;
+    @Value("${app.name}")
+    public String appName;
 
     @ApiOperation("value")
     @GetMapping("value")
     public String value() {
-        return labName;
+        return appName;
     }
 
     @ApiOperation("insert")

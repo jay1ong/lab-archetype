@@ -5,11 +5,11 @@ spring:
     nacos:
       discovery:
         server-addr: ${NACOS-HOST:nacos.gxzcdev.cn}:${NACOS-PORT:8848}
-        namespace: ${spring.application.name}
+        namespace: ${NACOS-NAMESPACE:lab}
         group: ${NACOS-GROUP:test}
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
-        namespace: ${spring.application.name}
+        namespace: ${NACOS-NAMESPACE:lab}
         group: ${spring.cloud.nacos.discovery.group}
         file-extension: yml
         shared-configs:
