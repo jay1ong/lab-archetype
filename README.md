@@ -1,0 +1,2 @@
+# lab
+Lab-maven-archetype
