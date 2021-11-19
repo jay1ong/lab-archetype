@@ -4,19 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.6</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-
     <groupId>com.im</groupId>
     <artifactId>lab</artifactId>
     <version>2021.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>archetype</name>
+    <name>lab-archetype</name>
 
     <url>https://jaylong.cn</url>
 
@@ -28,6 +21,11 @@
         <maven-complier-plugin.version>3.8.1</maven-complier-plugin.version>
         <javax-persistence-api.version>2.2</javax-persistence-api.version>
         <lab-dependencies.version>2021.0.0-SNAPSHOT</lab-dependencies.version>
+        <spring-boot.version>2.5.6</spring-boot.version>
+        <maven-compiler-plugin>3.8.1</maven-compiler-plugin>
+        <lombok.version>1.18.22</lombok.version>
+        <querydsl.version>5.0.0</querydsl.version>
+        <javax-persistence-api>2.2</javax-persistence-api>
     </properties>
 
     <!--     omitted xml -->
@@ -46,6 +44,13 @@
                 <groupId>com.im</groupId>
                 <artifactId>lab-dependencies</artifactId>
                 <version>${lab-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -80,6 +85,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -89,7 +95,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>${maven-complier-plugin.version}</version>
                 <configuration>
                     <target>${maven.compiler.target}</target>
                     <source>${maven.compiler.source}</source>
