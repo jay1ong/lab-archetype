@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group = 'com.im'
+version = '2021.0.0-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+//configurations {
+//    compileOnly {
+//        extendsFrom annotationProcessor
+//    }
+//}
+
+//processResources {
+//    expand(project.properties)
+//}
+
+//processResources {
+//    filter ReplaceTokens, tokens: [
+//            "labName": project.property('name')
+//    ]
+//}
+import org.apache.tools.ant.filters.ReplaceTokens
+processResources {
+//    with copySpec {
+//        from '/src/main/resources'
+////        include 'application.properties'
+//        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    project.properties.findAll().each { prop ->
+        if (prop.value != null && prop.value instanceof String) {
+            filter(ReplaceTokens, tokens: [ (prop.key): prop.value])
+            filter(ReplaceTokens, tokens: [ ('project.' + prop.key): prop.value])
+        }
+    }
+//    }
+}
+
+ext {
+    labframeworkVersion = '2021.0.0-SNAPSHOT'
+    springbootVersion = '2.5.6'
+}
+
+dependencies {
+    implementation(platform("com.im:lab-dependencies-gradle:$labframeworkVersion"))
+    annotationProcessor(platform("com.im:lab-dependencies-gradle:$labframeworkVersion"))
+    implementation(platform("org.springframework.boot:spring-boot-dependencies:$springbootVersion"))
+    implementation('com.im:lab-core-gradle')
+    implementation('com.im:lab-data-jpa-gradle')
+    implementation('com.im:lab-autoconfig-gradle')
+    annotationProcessor('com.im:lab-autoconfig-gradle')
+}
+
+test {
+    useJUnitPlatform()
+}

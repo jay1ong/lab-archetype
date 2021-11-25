@@ -1,6 +1,6 @@
 spring:
   application:
-    name: @name@
+    name: lab-archetype
   cloud:
     nacos:
       discovery:
@@ -18,3 +18,7 @@ spring:
             refresh: true
   profiles:
     active: ${SPRING-PROFILES-ACTIVE:dev}
+
+
+
+
