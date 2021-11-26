@@ -18,7 +18,3 @@ spring:
             refresh: true
   profiles:
     active: ${SPRING-PROFILES-ACTIVE:dev}
-
-
-
-
