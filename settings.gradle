@@ -2,7 +2,6 @@ rootProject.name = 'lab-archetype'
 
 dependencyResolutionManagement {
     repositories {
-        mavenLocal()
         maven {
             url "https://serverless-100020665958-maven.pkg.coding.net/repository/lab/repo/"
             credentials {
@@ -17,5 +16,6 @@ dependencyResolutionManagement {
             url 'https://maven.aliyun.com/repository/central/'
         }
         mavenCentral()
+        mavenLocal()
     }
 }
