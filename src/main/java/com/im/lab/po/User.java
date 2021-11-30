@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.im.lab.enums.StatusEnum;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.Type;
@@ -118,16 +121,20 @@ public class User implements Serializable {
      * 邮箱
      */
     @Embedded
-    @AttributeOverride(name = "value", column = @Column(name = "email"))
-    @AttributeOverride(name = "verified", column = @Column(nullable = false, name = "email_verified"))
+    @AttributeOverrides({
+            @AttributeOverride(name = "value", column = @Column(name = "email")),
+            @AttributeOverride(name = "verified", column = @Column(nullable = false, name = "email_verified"))
+    })
     private VerifierEmbed email;
 
     /**
      * 手机号码
      */
     @Embedded
-    @AttributeOverride(name = "value", column = @Column(name = "phone_number"))
-    @AttributeOverride(name = "verified", column = @Column(nullable = false, name = "phone_number_verified"))
+    @AttributeOverrides(
+            {@AttributeOverride(name = "value", column = @Column(name = "phone_number")),
+                    @AttributeOverride(name = "verified", column = @Column(nullable = false, name = "phone_number_verified"))}
+    )
     private VerifierEmbed phoneNumber;
 
     /**
