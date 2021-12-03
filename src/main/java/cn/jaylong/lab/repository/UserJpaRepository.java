@@ -1,6 +1,6 @@
-package com.im.lab.repository;
+package cn.jaylong.lab.repository;
 
-import com.im.lab.po.User;
+import cn.jaylong.lab.po.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

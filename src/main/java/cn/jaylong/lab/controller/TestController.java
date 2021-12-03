@@ -1,9 +1,9 @@
-package com.im.lab.controller;
+package cn.jaylong.lab.controller;
 
 import cn.hutool.core.util.RandomUtil;
-import com.im.lab.po.User;
-import com.im.lab.po.VerifierEmbed;
-import com.im.lab.repository.UserJpaRepository;
+import cn.jaylong.lab.po.User;
+import cn.jaylong.lab.po.VerifierEmbed;
+import cn.jaylong.lab.repository.UserJpaRepository;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

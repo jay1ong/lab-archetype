@@ -1,4 +1,4 @@
-package com.im.lab;
+package cn.jaylong.lab;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

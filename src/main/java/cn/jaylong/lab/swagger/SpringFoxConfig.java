@@ -1,4 +1,4 @@
-package com.im.lab.swagger;
+package cn.jaylong.lab.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.im.lab.enums;
+package cn.jaylong.lab.enums;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.AccessLevel;

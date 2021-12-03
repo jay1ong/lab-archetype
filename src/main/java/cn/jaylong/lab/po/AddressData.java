@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.im.lab.po;
+package cn.jaylong.lab.po;
 
 import lombok.Data;
 

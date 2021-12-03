@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.im.lab.po;
+package cn.jaylong.lab.po;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -35,48 +35,60 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Embeddable
-public class RegisterInfoEmbed implements Serializable {
-    private static final long serialVersionUID = -1839544143497064464L;
+public class LastLoginInfoEmbed implements Serializable {
+    private static final long serialVersionUID = -9072050662919543142L;
 
     /**
-     * 注册IP
-     * <p>len(255.255.255.255) == 15</p>
+     * 上次登录时使用的浏览器(UA信息)
+     * <p>user-agent</p>
+     */
+    @Column(length = 64)
+    private String ua;
+
+    /**
+     * 登录设备
+     */
+    @Column(length = 64)
+    private String device;
+
+    /**
+     * 最近一次登录IP
      */
     @Column(length = 16)
-    private String registerIpv4;
+    private String lastLoginIp;
 
     /**
-     * 注册Ipv6表示
-     * <p>
-     * len(0001:0002:0003:0004:0005:0006:0007:0008) == 39
-     * len(0001:0002:0003:0004:0005:ffff:255.255.255.255) == 45
-     * </p>
-     */
-    @Column(length = 46)
-    private String registerIpv6;
-
-    /**
-     * 注册时的时间
+     * 最近一次登录时间
      */
     @Column
-    private LocalDateTime registerAt;
+    private LocalDateTime lastLoginAt;
+
+    /**
+     * 登录次数
+     */
+    @Column(length = 64)
+    private Long loginCount;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        RegisterInfoEmbed that = (RegisterInfoEmbed) o;
+        LastLoginInfoEmbed that = (LastLoginInfoEmbed) o;
 
-        if (!Objects.equals(registerIpv4, that.registerIpv4)) return false;
-        if (!Objects.equals(registerIpv6, that.registerIpv6)) return false;
-        return Objects.equals(registerAt, that.registerAt);
+        if (!Objects.equals(ua, that.ua)) return false;
+        if (!Objects.equals(device, that.device)) return false;
+        if (!Objects.equals(lastLoginIp, that.lastLoginIp)) return false;
+        if (!Objects.equals(lastLoginAt, that.lastLoginAt)) return false;
+        return Objects.equals(loginCount, that.loginCount);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(registerIpv4);
-        result = 31 * result + (Objects.hashCode(registerIpv6));
-        result = 31 * result + (Objects.hashCode(registerAt));
+        int result = Objects.hashCode(ua);
+        result = 31 * result + (Objects.hashCode(device));
+        result = 31 * result + (Objects.hashCode(lastLoginIp));
+        result = 31 * result + (Objects.hashCode(lastLoginAt));
+        result = 31 * result + (Objects.hashCode(loginCount));
         return result;
     }
 }

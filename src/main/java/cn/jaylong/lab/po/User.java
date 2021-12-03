@@ -1,8 +1,8 @@
-package com.im.lab.po;
+package cn.jaylong.lab.po;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.im.lab.enums.StatusEnum;
+import cn.jaylong.lab.enums.StatusEnum;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -1,2 +1,2 @@
 # lab
-Lab-maven-archetype
+lab-gradle-archetype
