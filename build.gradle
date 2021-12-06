@@ -48,6 +48,7 @@ dependencies {
     implementation('cn.jaylong:lab-data-jpa-gradle')
     implementation('cn.jaylong:lab-autoconfig-gradle')
     annotationProcessor('cn.jaylong:lab-autoconfig-gradle')
+    implementation('cn.jaylong:lab-snowflake-gradle')
 }
 
 test {
