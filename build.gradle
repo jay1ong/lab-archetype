@@ -36,19 +36,21 @@ repositories {
     mavenLocal()
 }
 
-ext {
-    springbootVersion = '2.5.6'
-}
-
 dependencies {
     implementation(platform("cn.jaylong:lab-dependencies-gradle:$version"))
     annotationProcessor(platform("cn.jaylong:lab-dependencies-gradle:$version"))
-    implementation(platform("org.springframework.boot:spring-boot-dependencies:$springbootVersion"))
     implementation('cn.jaylong:lab-core-gradle')
     implementation('cn.jaylong:lab-data-jpa-gradle')
     implementation('cn.jaylong:lab-autoconfig-gradle')
     annotationProcessor('cn.jaylong:lab-autoconfig-gradle')
-    implementation('cn.jaylong:lab-snowflake-gradle')
+    annotationProcessor(
+            'org.projectlombok:lombok',
+            'org.mapstruct:mapstruct-processor',
+            'javax.annotation:javax.annotation-api',
+            'com.querydsl:querydsl-apt::jpa',
+            'com.querydsl:querydsl-apt::general',
+            'org.hibernate.javax.persistence:hibernate-jpa-2.1-api'
+    )
 }
 
 test {

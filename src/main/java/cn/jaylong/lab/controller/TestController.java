@@ -1,14 +1,11 @@
 package cn.jaylong.lab.controller;
 
-import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.RandomUtil;
 import cn.jaylong.lab.po.User;
 import cn.jaylong.lab.po.VerifierEmbed;
 import cn.jaylong.lab.repository.UserJpaRepository;
-import com.sankuai.inf.leaf.service.SnowflakeService;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +22,6 @@ import org.springframework.web.bind.annotation.*;
 public class TestController {
 
     private final UserJpaRepository jpaRepository;
-
-    private final SnowflakeService snowflakeService;
 
     @Value("${app.name}")
     public String appName;
@@ -77,11 +72,5 @@ public class TestController {
     @GetMapping("/{id}")
     public User insert(@PathVariable String id) {
         return jpaRepository.findById(id).orElse(new User());
-    }
-
-    @ApiOperation("snowflake")
-    @GetMapping("/snowflake/id")
-    public String snowflake() {
-        return Convert.toStr(snowflakeService.getId("id").getId());
     }
 }
