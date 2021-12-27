@@ -25,6 +25,7 @@ repositories {
             username = repoUsername
             password = repoPassword
         }
+        allowInsecureProtocol(true)
     }
     maven {
         url 'https://maven.aliyun.com/repository/public/'
@@ -39,7 +40,6 @@ repositories {
 dependencies {
     implementation(platform("cn.jaylong:lab-dependencies-gradle:$version"))
     annotationProcessor(platform("cn.jaylong:lab-dependencies-gradle:$version"))
-    implementation('cn.jaylong:lab-core-gradle')
     implementation('cn.jaylong:lab-data-jpa-gradle')
     implementation('cn.jaylong:lab-autoconfig-gradle')
     annotationProcessor('cn.jaylong:lab-autoconfig-gradle')
